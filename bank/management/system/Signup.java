@@ -10,6 +10,7 @@ import javax.swing.*;
 import com.toedter.calendar.JDateChooser;
 
 public class Signup extends JFrame {
+    JRadioButton r1,r2,r3;
     JTextField textName,textFname,textEmail,textAdd,textcity,textState,textPin;
     JDateChooser dateChooser;
     
@@ -68,10 +69,41 @@ public class Signup extends JFrame {
         DOB.setBounds(100,340,200,30);
         add(DOB);
 
+        //Small calender library for easily choosing date
         dateChooser = new JDateChooser();
         dateChooser.setForeground(new Color(105,105,105));
         dateChooser.setBounds(300,340,400,30);
         add(dateChooser);
+
+        JLabel labelG = new JLabel("Gender");
+        labelG.setFont(new Font("Raleway", Font.BOLD, 20));
+        labelG.setBounds(100,290,200,30);
+        add(labelG);
+
+        //Adding selecting options for labelG
+        r1 = new JRadioButton("Male");
+        r1.setFont(new Font("Raleway", Font.BOLD, 14));
+        r1.setBackground(new Color(222,255,228));
+        r1.setBounds(300,290,60,30);
+        add(r1);
+
+        r2 = new JRadioButton("Female");
+        r2.setFont(new Font("Raleway", Font.BOLD, 14));
+        r2.setBackground(new Color(222,255,228));
+        r2.setBounds(430,290,90,30);
+        add(r2);
+
+        r3 = new JRadioButton("Others");
+        r3.setFont(new Font("Raleway", Font.BOLD, 14));
+        r3.setBackground(new Color(222,255,228));
+        r3.setBounds(580,290,90,30);
+        add(r3);
+
+        //Grouping them so that user can select only one
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(r1);
+        buttonGroup.add(r2);
+        buttonGroup.add(r3);
 
         getContentPane().setBackground(new Color(222,255,228)); //Color Selection in RGB form
         setLayout(null);

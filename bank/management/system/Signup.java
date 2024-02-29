@@ -3,16 +3,20 @@ package bank.management.system;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
 import javax.swing.*;
 
 import com.toedter.calendar.JDateChooser;
 
-public class Signup extends JFrame {
-    JRadioButton r1,r2,r3;
-    JTextField textName,textFname,textEmail,textAdd,textcity,textState,textPin;
+public class Signup extends JFrame implements ActionListener{
+    JRadioButton r1,r2,r3,m1,m2;
+    JTextField textName,textFname,textEmail,textMarried,textAdd,textcity,textState,textPin;
     JDateChooser dateChooser;
+
+    JButton next;
     
     Random ran = new Random();
     long first4 = (ran.nextLong() % 9000L) +1000L;
@@ -105,11 +109,101 @@ public class Signup extends JFrame {
         buttonGroup.add(r2);
         buttonGroup.add(r3);
 
+        //Email address
+        JLabel labelEmail = new JLabel("Email Address");
+        labelEmail.setFont(new Font("Raleway",Font.BOLD,20));
+        labelEmail.setBounds(100,390,200,30);
+        add(labelEmail);
+
+        textEmail = new JTextField();
+        textEmail.setFont(new Font("Raleway",Font.BOLD, 14));
+        textEmail.setBounds(300,390,400,30);
+        add(textEmail);
+        
+        //Marital Status
+        JLabel labelMarried = new JLabel("Marital Status:");
+        labelMarried.setFont(new Font("Raleway",Font.BOLD,20));
+        labelMarried.setBounds(100,440,200,30);
+        add(labelMarried);
+
+        m1 = new JRadioButton("Married");
+        m1.setFont(new Font("Raleway", Font.BOLD, 14));
+        m1.setBackground(new Color(222,255,228));
+        m1.setBounds(300,440,90,30);
+        add(m1);
+
+        m2 = new JRadioButton("Single");
+        m2.setFont(new Font("Raleway", Font.BOLD, 14));
+        m2.setBackground(new Color(222,255,228));
+        m2.setBounds(430,440,90,30);
+        add(m2);
+
+        ButtonGroup buttonM = new ButtonGroup();
+        buttonM.add(m1);
+        buttonM.add(m2);
+
+        //Address
+        JLabel labelAdd = new JLabel("Address:");
+        labelAdd.setFont(new Font("Raleway",Font.BOLD,20));
+        labelAdd.setBounds(100,490,200,30);
+        add(labelAdd);
+
+        textAdd = new JTextField();
+        textAdd.setFont(new Font("Raleway",Font.BOLD, 14));
+        textAdd.setBounds(300,490,400,30);
+        add(textAdd);
+
+        //City
+        JLabel labelCity = new JLabel("City:");
+        labelCity.setFont(new Font("Raleway",Font.BOLD,20));
+        labelCity.setBounds(100,540,200,30);
+        add(labelCity);
+
+        textcity = new JTextField();
+        textcity.setFont(new Font("Raleway",Font.BOLD, 14));
+        textcity.setBounds(300,540,400,30);
+        add(textcity);
+
+        //Pincode
+        JLabel labelPin = new JLabel("PinCode:");
+        labelPin.setFont(new Font("Raleway",Font.BOLD,20));
+        labelPin.setBounds(100,590,200,30);
+        add(labelPin);
+
+        textPin = new JTextField();
+        textPin.setFont(new Font("Raleway",Font.BOLD, 14));
+        textPin.setBounds(300,590,400,30);
+        add(textPin);
+
+        //State
+        JLabel labelState = new JLabel("PinCode:");
+        labelState.setFont(new Font("Raleway",Font.BOLD,20));
+        labelState.setBounds(100,590,200,30);
+        add(labelState);
+
+        textState= new JTextField();
+        textState.setFont(new Font("Raleway",Font.BOLD, 14));
+        textState.setBounds(300,590,400,30);
+        add(textState);
+
+        next = new JButton("Next");
+        next.setFont(new Font("Raleway",Font.BOLD, 14));
+        next.setBackground(Color.BLACK);
+        next.setForeground(Color.WHITE);
+        next.setBounds(620,710,80,30);
+        next.addActionListener(this);
+        add(next);
+
+
         getContentPane().setBackground(new Color(222,255,228)); //Color Selection in RGB form
         setLayout(null);
         setSize(850,800);
         setLocation(360,40);
         setVisible(true);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
     }
     public static void main(String[] args) {
         new Signup();

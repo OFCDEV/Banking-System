@@ -11,8 +11,6 @@ import com.toedter.calendar.JDateChooser;
 
 public class Signup extends JFrame {
     JTextField textName,textFname,textEmail,textAdd,textcity,textState,textPin;
-
-    // JDateChooser dateChooser;
     JDateChooser dateChooser;
     
     Random ran = new Random();
@@ -65,10 +63,10 @@ public class Signup extends JFrame {
         DOB.setBounds(100,340,200,30);
         add(DOB);
 
-        // dateChooser = new JDateChooser();
-        // dateChooser.setForeground(new Color(105,105,105));
-        // dateChooser.setBounds(300,340,400,30);
-        // add(dateChooser);
+        dateChooser = new JDateChooser();
+        dateChooser.setForeground(new Color(105,105,105));
+        dateChooser.setBounds(300,340,400,30);
+        add(dateChooser);
 
         getContentPane().setBackground(new Color(222,255,228)); //Color Selection in RGB form
         setLayout(null);

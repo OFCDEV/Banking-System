@@ -43,21 +43,26 @@ public class Signup extends JFrame {
         label3.setBounds(290,90,600,30);
         add(label3);
 
-        textName = new JTextField();
-        textName.setFont(new Font("Raleway",Font.BOLD, 14));
-        textName.setBounds(300,190,400,30);
-        add(textName);
-
         JLabel labelName = new JLabel("Name :");
         labelName.setFont(new Font("Raleway", Font.BOLD, 20));
         labelName.setBounds(100,190,100,30);
         add(labelName);
+
+        textName = new JTextField();
+        textName.setFont(new Font("Raleway",Font.BOLD, 14));
+        textName.setBounds(300,190,400,30);
+        add(textName);
 
         JLabel labelfName = new JLabel("Father's Name :");
         labelfName.setFont(new Font("Raleway", Font.BOLD, 20));
         labelfName.setBounds(100,240,200,30);
         add(labelfName);
 
+        textFname = new JTextField();
+        textFname.setFont(new Font("Raleway",Font.BOLD,14));
+        textFname.setBounds(300,240,400,30);
+        add(textFname);
+        
         JLabel DOB = new JLabel("Date of Birth");
         DOB.setFont(new Font("Raleway", Font.BOLD, 20));
         DOB.setBounds(100,340,200,30);

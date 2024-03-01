@@ -203,7 +203,51 @@ public class Signup extends JFrame implements ActionListener{
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
+        //Converting lables to string and stored them to the database;
+        String formno = first;
+        String name = textName.getText();
+        String fname = textFname.getText();
+        String dob = ((JTextField) dateChooser.getDateEditor().getUiComponent()).getText();
+        String gender = null;
+        //If-else for the radio button selection
+        if(r1.isSelected()){
+            gender = "Male";
+        }else if (r2.isSelected()) {
+            gender = "Female";
+        }
+        else if (r3.isSelected()){
+            gender = "Others";
+        }
+        String email = textEmail.getText();
+        String marital = null;
+        if (m1.isSelected()) {
+            marital = "Married";
+        } else if (m2.isSelected()) {
+            marital = "Single";
+        }
+        String address = textAdd.getText();
+        String city = textcity.getText();
+        String pincode = textPin.getText();
+        String state = textState.getText();
+
+        try {
+            if (textName.getText().equals("")) {
+                JOptionPane.showMessageDialog(null,"FIll all the fields");
+            }else{
+                connect connect1 = new connect();
+                //To store the data in the database we have to run a query
+                String q = "insert into signup values('"+formno+"','"+name+"','"+fname+"','"+dob+"','"+gender+"','"+email+"','"+marital+"','"+address+"','"+city+"','"+state+"','"+pincode+"')";
+
+                //To input value in the table
+                connect1.statement.executeUpdate(q);
+                new Signup2();
+                //To close this signup page when user press next button
+                setVisible(false);
+            }
+        } catch (Exception E) {
+           E.printStackTrace(); //To check if there's a runtime error or not
+        }
     }
     public static void main(String[] args) {
         new Signup();

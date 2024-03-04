@@ -241,7 +241,7 @@ public class Signup extends JFrame implements ActionListener{
 
                 //To input value in the table
                 connect1.statement.executeUpdate(q);
-                new Signup2();
+                new Signup2(q); //changed now
                 //To close this signup page when user press next button
                 setVisible(false);
             }

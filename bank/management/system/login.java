@@ -119,7 +119,7 @@ public class Login extends JFrame implements ActionListener{
                 passwordField3.setText("");
             }
             else if(e.getSource()==button3){
-
+                new Signup();
             }
         } catch (Exception E) {
             E.printStackTrace();    //To visible the errors.

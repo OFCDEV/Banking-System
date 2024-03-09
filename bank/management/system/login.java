@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 import javax.swing.*;
 
@@ -106,13 +107,29 @@ public class Login extends JFrame implements ActionListener{
         setLayout(null);
         setSize(850,480);
         setLocation(450,200);
+        //To remove default close,minimize,hide features of windows
+        setUndecorated(true);
         setVisible(true);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
             if (e.getSource()==button1) {
-                
+                connect c = new connect();
+                String cardno = textField2.getText();
+                String pin = passwordField3.getText();
+                String q = "select * from login where card_number = '"+cardno+"' and pin = '"+pin+"'";
+                ResultSet resultSet = c.statement.executeQuery(q);  //To get value we use executeQuery
+                if (resultSet.next()) {
+                    setVisible(false);
+                    new main_Class(pin);
+                }
+                //If user puts invalid parameters
+                else{
+                    JOptionPane.showMessageDialog(null, "Incorrect CardNo. or PIN");
+                    // setVisible(false);
+                    System.exit(0);
+                }
             }
             else if(e.getSource()==button2){
                 textField2.setText("");

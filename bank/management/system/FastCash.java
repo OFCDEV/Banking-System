@@ -89,7 +89,8 @@ public class FastCash extends JFrame implements ActionListener {
             setVisible(false);
             new main_Class(pin);
         }else {
-            String amount = ((JButton)e.getSource()).getText().substring(4);
+            //We combine all the buttons
+            String amount = ((JButton)e.getSource()).getText().substring(4); //To get only amount we use that "substring" method to split from first 4 indexes i,e(Rs. )
             connect c = new connect();
             Date date = new Date();
             try{

@@ -44,7 +44,7 @@ public class BalanceEnquriy extends JFrame implements ActionListener {
         try{
             connect c = new connect();
             ResultSet resultSet = c.statement.executeQuery("Select * from bank where pin = '"+pin+"'");
-            while (resultSet.next()){
+            while (resultSet.next()){   //resultSet.next() is used to check if the next row in the table is empty or not
                 if (resultSet.getString("type").equals("Deposit")){
                     balance += Integer.parseInt(resultSet.getString("amount"));
                 }else {

@@ -103,12 +103,12 @@ public class FastCash extends JFrame implements ActionListener {
                         balance -= Integer.parseInt(resultSet.getString("amount"));
                     }
                 }
-
                 if (e.getSource() != b7 && balance < Integer.parseInt(amount)){
                     JOptionPane.showMessageDialog(null, "Insuffient Balance");
                     return;
                 }
-
+                
+                //After the cash withdrawl we have to update the table
                 c.statement.executeUpdate("insert into bank values('"+pin+"','"+date+"', 'withdrawl', '"+amount+"')");
                 JOptionPane.showMessageDialog(null, "Rs. "+amount+" Debited Successfully");
             }catch (Exception E){
